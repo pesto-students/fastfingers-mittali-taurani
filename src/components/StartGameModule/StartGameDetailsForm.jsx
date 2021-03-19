@@ -20,7 +20,7 @@ export default function StartGameDetailsForm() {
     playerNameRef.current.focus();
     const name = SessionStorage.getFromSessionStorage(`playerName`);
     const checkLoggedIn = SessionStorage.getFromSessionStorage(`isLoggedIn`);
-    if (name && checkLoggedIn) setPlayerName(name);
+    if (name && checkLoggedIn) playerNameRef.current.value=name;
   });
 
   const handOnStartGame = (event) => {
