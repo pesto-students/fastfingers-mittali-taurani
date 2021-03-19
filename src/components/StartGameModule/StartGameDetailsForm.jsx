@@ -15,7 +15,7 @@ export default function StartGameDetailsForm(props) {
 
   useEffect(() => {
     playerNameRef.current.focus();
-  }, []);
+  });
 
   // useEffect(() => {
   //   console.log({playerName});
