@@ -1,0 +1,58 @@
+.base-timer {
+  position: relative;
+  height: 300px;
+  width: 300px;
+}
+
+.base-timer-svg{
+  transform: rotate(-90deg);
+}
+
+/* The SVG path that displays the timer's progress */
+.base-timer-path-elapsed {
+  stroke-width: 0.2rem;
+  stroke: var(--light-red);
+  fill: none;
+  // stroke-linecap: round;
+  // transition: stroke-dashoffset 1s linear;
+  animation: countdown 10s linear forwards;
+}
+
+.base-timer-path-elapsed-base {
+  stroke-width: 0.15rem;
+  stroke: var(--cool-grey);
+  fill: none;
+}
+
+.base-timer-label {
+  position: absolute;
+
+  /* Size should match the parent container */
+  width: 300px;
+  height: 300px;
+
+  /* Keep the label aligned to the top */
+  top: 0;
+
+  /* Create a flexible box that centers content vertically and horizontally */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Sort of an arbitrary number; adjust to your liking */
+  //   font-size: 48px;
+}
+
+
+@keyframes countdown {
+  from {
+    stroke-dashoffset: 0px;
+  }
+  to {
+    stroke-dashoffset: 157px;
+  }
+}
+
+.time-up {
+  font-size: 2rem;;
+}

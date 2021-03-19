@@ -1,0 +1,20 @@
+.scoreboard-card {
+  border-radius: 15px;
+  border: solid 3px var(--light-red);
+  color: var(--white);
+  font-size: 1rem;
+  font-family: var(--ff-secondary);
+  padding: 3%;
+  align-items: flex-start;
+  height: 30%;
+
+  .scoreboard-header{
+    color: var(--light-red);
+    margin: 2% 0 5%;
+    align-self: center;
+  }
+
+  & span:not(:first-child) {
+    margin-bottom: 3%;
+  }
+}

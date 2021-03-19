@@ -1,0 +1,26 @@
+.header-main-content {
+  justify-content: space-between;
+  // padding: 2% 2% 0;
+  font-size: 2rem;
+  font-family: var(--ff-primary);
+}
+
+.user-specific-details,
+.game-specific-details {
+  div {
+    align-self: baseline;
+  }
+}
+
+.header-icons {
+  margin-right: 1rem;
+}
+
+.game-specific-details {
+  align-self: flex-start;
+
+  .game-name-common-header {
+    font-family: var(--ff-logo);
+    align-self: flex-start;
+  }
+}
