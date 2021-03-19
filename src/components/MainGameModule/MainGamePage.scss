@@ -1,0 +1,25 @@
+.game-main-page-content {
+  align-items: initial;
+  font-size: 2.5rem;
+  height: 100vh;
+  padding: 2%;
+
+  .game-content {
+    // justify-content: space-around;
+    font-family: var(--ff-tertiary);
+    align-items: flex-start;
+    margin-top: 5%;
+
+    .main-game{
+        margin: 0 auto;
+    }
+
+    .scoreboard {
+      width: 15%;
+    }
+  }
+}
+
+.main-game-footer {
+  margin-top: auto;
+}

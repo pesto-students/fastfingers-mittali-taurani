@@ -1,3 +1,72 @@
+/*
+=============== 
+Fonts
+===============
+*/
+@font-face {
+  font-family: 'BreamCatcher';
+  src: url('assets/fonts/BreamCatcher/breamcatcher.ttf');
+}
+@font-face {
+  font-family: 'LaserCorpsGradient';
+  src: url('assets/fonts/LaserCorpsGrad/lasercorpsgrad.ttf');
+}
+@font-face {
+  font-family: 'GothamBook';
+  src: url('assets/fonts/Gotham/GothamBook.ttf');
+}
+@font-face {
+  font-family: 'GothamMedium';
+  src: url('assets/fonts/Gotham/GothamMedium.ttf');
+}
+
+/*
+=============== 
+Variables
+===============
+*/
+:root {
+  --ff-logo: 'LaserCorpsGradient';
+  --ff-primary: 'BreamCatcher';
+  --ff-secondary: 'GothamBook';
+  --ff-tertiary: 'GothamMedium';
+  --white: #ffffff;
+  --marine: #063c47;
+  --black: #000000;
+  --light-red: #ff5155;
+  --cool-grey: #97a4a7;
+  --cool-grey-two: #97a5a7;
+  --evergreen: #032228;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+  background-color: var(--black);
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  background-image: url(./assets/background/Group_243.svg), linear-gradient(#000 5%, #032228, #063c47);
+  background-blend-mode: multiply;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* background-position: center; */
+  /* -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover; */
+  color: var(--light-red);
+  font-size: 10px;
+  font-family: var(--ff-primary), var(--ff-secondary), var(--ff-tertiary);
+}
+
 .App {
   text-align: center;
 }

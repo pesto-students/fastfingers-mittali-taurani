@@ -1,0 +1,39 @@
+.game-start-header {
+  margin: 5% 0 3% 0;
+
+  img {
+    height: 60%;
+    width: 60%;
+  }
+}
+
+.game-name-start-header {
+  font-family: var(--ff-logo);
+  font-size: 3rem;
+  margin: 3% 0 0;
+}
+
+.tag-line-start-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-family: var(--ff-tertiary);
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.19;
+  margin: 0;
+
+  &:before,
+  &:after {
+    content: "";
+    flex-grow: 1;
+    border-bottom: 1px solid var(--light-red);
+    margin: auto;
+  }
+  &:before {
+    margin-right: 10px;
+  }
+  &:after {
+    margin-left: 10px;
+  }
+}
