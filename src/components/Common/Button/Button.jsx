@@ -13,6 +13,6 @@ export default function Button({ value, Icon, onClickHandler }) {
 
 Button.propTypes = {
   value: PropTypes.string.isRequired,
-  Icon: PropTypes.string.isRequired,
-  onClickHandler: PropTypes.string,
+  Icon: PropTypes.func.isRequired,
+  onClickHandler: PropTypes.func,
 };
