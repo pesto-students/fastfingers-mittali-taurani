@@ -8,10 +8,28 @@
     // justify-content: space-around;
     font-family: var(--ff-tertiary);
     align-items: flex-start;
-    margin-top: 5%;
+    margin-top: 3%;
 
-    .main-game{
-        margin: 0 auto;
+    .main-game {
+      margin: 0 auto;
+      font-size: 3rem;
+
+      .word-wrapper {
+        margin-top: 5%;
+
+        .word-input {
+          text-transform: uppercase;
+          text-align: center;
+          font-size: 1.5rem;
+          width: 100%;
+          margin-top: 7%;
+          padding: 5% 3%;
+          opacity: 0.59;
+          border-radius: 15px;
+          box-shadow: 0 3px 16px 0 rgba(0, 0, 0, 0.8);
+          background-color: var(--white);
+        }
+      }
     }
 
     .scoreboard {
