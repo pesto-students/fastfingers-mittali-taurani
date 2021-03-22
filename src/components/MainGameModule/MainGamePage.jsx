@@ -5,7 +5,7 @@ import MainGameFooter from "./MainGameFooter";
 import TimerCounter from "../TimerCounter/TimerCounter";
 import ScoreBoard from "./ScoreBoard";
 import WordWrapper from "./WordWrapper";
-import GameUtil from "../../util/GameUtil";
+import { DIFFICULTY_LEVELS, GameUtil } from "../../util/GameUtil";
 import LocalStorage from "../../util/LocalStorage";
 
 export default class MainGamePage extends Component {
@@ -18,13 +18,15 @@ export default class MainGamePage extends Component {
       currentGameScore: 0,
       gameScores: [],
       playerName: LocalStorage.getFromLocalStorage(`playerName`),
-      difficultyLevel: Number(LocalStorage.getFromLocalStorage(`difficultyLevel`)),
+      difficultyLevel: Number(
+        LocalStorage.getFromLocalStorage(`difficultyLevel`)
+      ),
     };
     this.animationCircle = React.createRef();
   }
 
   componentDidMount() {
-    this.setState({ currentGameScore: GameUtil.formatTimeValue(0) });
+    this.setState({ currentGameScore: 0 });
     this.startGameTimer();
     const word = GameUtil.getNewWordFromDictionary(this.state.difficultyLevel);
     const timeGiven = GameUtil.getTimerValue(
@@ -64,9 +66,7 @@ export default class MainGamePage extends Component {
   startGameTimer = () => {
     this.gameTimer = setInterval(() => {
       this.setState({
-        currentGameScore: GameUtil.formatTimeValue(
-          parseInt(this.state.currentGameScore) + 1
-        ),
+        currentGameScore: parseInt(this.state.currentGameScore) + 1
       });
     }, 1000);
   };
@@ -77,32 +77,37 @@ export default class MainGamePage extends Component {
   }
 
   handleWordChange = (event) => {
-    const inputWord = event.target.value;
-    this.setState({ typedWord: inputWord });
-    if (this.state.givenWord.toUpperCase() === inputWord.toUpperCase()) {
-      clearInterval(this.clockTimer);
-      this.setState({
-        givenWord: GameUtil.getNewWordFromDictionary(
-          this.state.difficultyLevel
-        ),
-      });
-      this.setState({ typedWord: "" });
-      const changeDifficultyLevel = GameUtil.getNewDifficultyLevel(
-        parseFloat(this.state.difficultyLevel + 0.01).toFixed(2)
-      );
-      this.setState({
-        timerValue: GameUtil.getTimerValue(
-          this.state.givenWord.length,
-          changeDifficultyLevel
-        ),
-      });
-      setTimeout(() => {
-        this.animationCircle.current.style.animation = `countdown ${parseFloat(
-          this.state.timerValue
-        ).toFixed(2)}s linear forwards`;
-        this.startClockTimer();
-      }, 500);
-    }
+    const inputWord = event.target.value.trim();
+    this.setState({ typedWord: inputWord }, () => {
+      if (this.state.givenWord.toUpperCase() === inputWord.toUpperCase()) {
+        clearInterval(this.clockTimer);
+        this.animationCircle.current.style.animation = null;
+        this.setState({
+          givenWord: GameUtil.getNewWordFromDictionary(
+            this.state.difficultyLevel
+          ),
+        });
+        this.setState({ typedWord: "" });
+        const changeDifficultyLevel = parseFloat(this.state.difficultyLevel + 0.01).toFixed(2);
+        this.setState({difficultyLevel: GameUtil.getNewDifficultyLevel(changeDifficultyLevel)})
+        this.setState(
+          {
+            timerValue: GameUtil.getTimerValue(
+              this.state.givenWord.length,
+              changeDifficultyLevel
+            ),
+          },
+          () => {
+            setTimeout(() => {
+              this.animationCircle.current.style.animation = `countdown ${parseFloat(
+                this.state.timerValue
+              ).toFixed(2)}s linear forwards`;
+              this.startClockTimer();
+            }, 500);
+          }
+        );
+      }
+    });
   };
 
   render() {
@@ -120,6 +125,7 @@ export default class MainGamePage extends Component {
           playerName={playerName}
           difficultyLevel={difficultyLevel}
           currentGameScore={currentGameScore}
+          page={"mainGame"}
         />
         <main className="game-content flex-row">
           <div className="scoreboard">
