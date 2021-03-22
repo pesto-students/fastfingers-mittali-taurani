@@ -5,7 +5,7 @@ import MainGameFooter from "./MainGameFooter";
 import TimerCounter from "../TimerCounter/TimerCounter";
 import ScoreBoard from "./ScoreBoard";
 import WordWrapper from "./WordWrapper";
-import { DIFFICULTY_LEVELS, GameUtil } from "../../util/GameUtil";
+import { GameUtil } from "../../util/GameUtil";
 import LocalStorage from "../../util/LocalStorage";
 
 export default class MainGamePage extends Component {
