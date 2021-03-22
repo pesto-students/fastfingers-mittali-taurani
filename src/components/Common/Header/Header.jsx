@@ -1,7 +1,7 @@
 import React from "react";
 import "./Header.scss";
 import { FaUserAlt, FaGamepad } from "react-icons/fa";
-import GameUtil from "../../../util/GameUtil";
+import { GameUtil } from "../../../util/GameUtil";
 import PropTypes from "prop-types";
 
 export default function Header({ playerName, difficultyLevel, currentGameScore }) {
@@ -19,7 +19,7 @@ export default function Header({ playerName, difficultyLevel, currentGameScore }
       </section>
       <section className="game-specific-details flex-column">
         <div className="game-name-common-header">fast fingers</div>
-        <div>SCORE: {currentGameScore}</div>
+        <div>SCORE: {GameUtil.formatTimeValue(currentGameScore)}</div>
       </section>
     </div>
   );
@@ -28,11 +28,11 @@ export default function Header({ playerName, difficultyLevel, currentGameScore }
 Header.propTypes = {
   playerName: PropTypes.string.isRequired,
   difficultyLevel: PropTypes.number.isRequired,
-  currentGameScore: PropTypes.string,
+  currentGameScore: PropTypes.number,
 };
 
 Header.defaultProps = {
   playerName: "",
   difficultyLevel: 1,
-  currentGameScore: "00:00",
+  currentGameScore: 0,
 };

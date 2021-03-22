@@ -43,4 +43,4 @@ const GameUtil = {
   }
 };
 
-export default GameUtil;
+export { DIFFICULTY_LEVELS, GameUtil };
