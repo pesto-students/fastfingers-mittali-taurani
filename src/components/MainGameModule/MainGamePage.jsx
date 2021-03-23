@@ -23,6 +23,7 @@ export default class MainGamePage extends Component {
     };
     this.animationCircle = React.createRef();
     this.changeDifficultyLevel = this.state.difficultyLevel;
+    this.allScores = JSON.parse(LocalStorage.getFromLocalStorage(`gameScores`));
   }
 
   componentDidMount() {
@@ -114,12 +115,11 @@ export default class MainGamePage extends Component {
 
   handleGameOver = () => {
     clearInterval(this.clockTimer, this.gameTimer);
-    let allScores = JSON.parse(LocalStorage.getFromLocalStorage(`gameScores`));
-    if (allScores === null) {
-      allScores = [];
+    if (this.allScores === null) {
+      this.allScores = [];
     }
-    allScores.push(GameUtil.formatTimeValue(this.state.currentGameScore));
-    LocalStorage.setInLocalStorage('gameScores', JSON.stringify(allScores));
+    this.allScores.push(GameUtil.formatTimeValue(this.state.currentGameScore));
+    LocalStorage.setInLocalStorage('gameScores', JSON.stringify(this.allScores));
     window.location.href= './result';
   };
 
@@ -142,7 +142,7 @@ export default class MainGamePage extends Component {
         />
         <main className="game-content flex-row">
           <div className="scoreboard">
-            <ScoreBoard />
+            <ScoreBoard gameScores={this.allScores}/>
           </div>
           <div className="main-game flex-column">
             <TimerCounter
