@@ -5,7 +5,7 @@ import MainGameFooter from "./MainGameFooter";
 import TimerCounter from "../TimerCounter/TimerCounter";
 import ScoreBoard from "./ScoreBoard";
 import WordWrapper from "./WordWrapper";
-import { GameUtil } from "../../util/GameUtil";
+import GameUtil from "../../util/GameUtil";
 import LocalStorage from "../../util/LocalStorage";
 
 export default class MainGamePage extends Component {
@@ -16,13 +16,13 @@ export default class MainGamePage extends Component {
       typedWord: "",
       timerValue: "",
       currentGameScore: 0,
-      gameScores: [],
       playerName: LocalStorage.getFromLocalStorage(`playerName`),
       difficultyLevel: Number(
         LocalStorage.getFromLocalStorage(`difficultyLevel`)
       ),
     };
     this.animationCircle = React.createRef();
+    this.changeDifficultyLevel = this.state.difficultyLevel;
   }
 
   componentDidMount() {
@@ -52,8 +52,7 @@ export default class MainGamePage extends Component {
         timerValue: this.state.timerValue - 0.05,
       }));
     } else {
-      // game over logic here
-      console.log("time up");
+      this.handleGameOver();
     }
   };
 
@@ -66,14 +65,13 @@ export default class MainGamePage extends Component {
   startGameTimer = () => {
     this.gameTimer = setInterval(() => {
       this.setState({
-        currentGameScore: parseInt(this.state.currentGameScore) + 1
+        currentGameScore: parseInt(this.state.currentGameScore) + 1,
       });
     }, 1000);
   };
 
   componentWillUnmount() {
-    clearInterval(this.clockTimer);
-    clearInterval(this.gameTimer);
+    clearInterval(this.clockTimer, this.gameTimer);
   }
 
   handleWordChange = (event) => {
@@ -88,13 +86,17 @@ export default class MainGamePage extends Component {
           ),
         });
         this.setState({ typedWord: "" });
-        const changeDifficultyLevel = parseFloat(this.state.difficultyLevel + 0.01).toFixed(2);
-        this.setState({difficultyLevel: GameUtil.getNewDifficultyLevel(changeDifficultyLevel)})
+        parseFloat((this.changeDifficultyLevel += 0.01)).toFixed(2);
+        this.setState({
+          difficultyLevel: GameUtil.getNewDifficultyLevel(
+            this.changeDifficultyLevel
+          ),
+        });
         this.setState(
           {
             timerValue: GameUtil.getTimerValue(
               this.state.givenWord.length,
-              changeDifficultyLevel
+              this.changeDifficultyLevel
             ),
           },
           () => {
@@ -108,6 +110,17 @@ export default class MainGamePage extends Component {
         );
       }
     });
+  };
+
+  handleGameOver = () => {
+    clearInterval(this.clockTimer, this.gameTimer);
+    let allScores = JSON.parse(LocalStorage.getFromLocalStorage(`gameScores`));
+    if (allScores === null) {
+      allScores = [];
+    }
+    allScores.push(GameUtil.formatTimeValue(this.state.currentGameScore));
+    LocalStorage.setInLocalStorage('gameScores', JSON.stringify(allScores));
+    window.location.href= './result';
   };
 
   render() {
@@ -150,7 +163,7 @@ export default class MainGamePage extends Component {
             />
           </div>
         </main>
-        <MainGameFooter />
+        <MainGameFooter handleOnQuit={this.handleGameOver} />
       </div>
     );
   }

@@ -3,16 +3,10 @@ import "./MainGamePage.scss";
 import Button from '../Common/Button/Button'
 import { FaTimes } from "react-icons/fa";
 
-
-const handOnStopGame = (event) => {
-    event.preventDefault();
-    window.location.href= './';
-  };
-
-export default function MainGameFooter() {
+export default function MainGameFooter( {handleOnQuit}) {
   return (
     <div className="main-game-footer">
-        <Button value="stop game" onClickHandler={handOnStopGame} Icon={FaTimes} />
+        <Button value="stop game" onClickHandler={handleOnQuit} Icon={FaTimes} />
     </div>
   );
 }
