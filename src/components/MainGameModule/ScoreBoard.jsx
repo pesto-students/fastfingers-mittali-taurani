@@ -1,16 +1,21 @@
-import React from 'react';
-import './ScoreBoard.scss'
+import React from "react";
+import "./ScoreBoard.scss";
 
-const ScoreBoard = (props) => {
-    return (
-        <div className="scoreboard-card flex-column">
-            <span className="scoreboard-header">SCORE BOARD</span>
-            <span>Game 1  : 1:14</span>
-            <span>Game 2 : 1:27</span>
-            <span>Game 3 : 2:01</span>
-            <span>Game 3 : 2:01</span>
-        </div>
-    );
+const ScoreBoard = ({ gameScores }) => {
+  return (
+    <div className="scoreboard-card flex-column">
+      <span className="scoreboard-header">SCORE BOARD</span>
+      {gameScores === null ? (
+        <span>No records</span>
+      ) : (
+        gameScores.map((value, index) => (
+          <span>
+            Game {index + 1} : {value}
+          </span>
+        ))
+      )}
+    </div>
+  );
 };
 
 export default ScoreBoard;

@@ -12,6 +12,7 @@
     box-shadow: 0 3px 16px 0 rgba(0, 0, 0, 0.8);
     background-color: var(--white);
     opacity: 0.59;
+    outline: none;
   }
 
   select {
@@ -24,6 +25,7 @@
     background: transparent;
     color: var(--cool-grey-two);
     padding: 1% 10% 1% 2%;
+    outline: none;
   }
 
   .start-btn {
