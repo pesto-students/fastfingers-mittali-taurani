@@ -1,0 +1,44 @@
+.game-end-page-content {
+  align-items: initial;
+  font-size: 2.5rem;
+  height: 100vh;
+  padding: 2%;
+
+  .end-game-content {
+    color: var(--white);
+    font-family: var(--ff-tertiary);
+    margin: auto 0;
+    min-height: 50%;
+
+    .score-details {
+      font-size: 4rem;
+    }
+
+    .game-score {
+      font-size: 5rem;
+      margin: auto 0;
+    }
+
+    .new-high-score{
+      margin: 1% 0 3%;
+    }
+
+    .play-again-btn button{
+      font-size: 2.5rem;
+    }
+  }
+
+  .end-game-footer {
+    align-self: flex-start;
+
+    .quit-game-button {
+      font-family: var(--ff-tertiary);
+      font-size: 2rem;
+      background: transparent;
+      border: none;
+      padding: 0;
+      color: var(--light-red);
+      cursor: pointer;
+    }
+  }
+}

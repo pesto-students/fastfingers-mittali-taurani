@@ -5,13 +5,12 @@
   padding: 2%;
 
   .game-content {
-    // justify-content: space-around;
     font-family: var(--ff-tertiary);
     align-items: flex-start;
     margin-top: 3%;
 
     .main-game {
-      margin: 0 auto;
+      margin: auto;
       font-size: 3rem;
 
       .word-wrapper {
