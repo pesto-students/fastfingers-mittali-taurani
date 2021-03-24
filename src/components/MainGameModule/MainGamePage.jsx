@@ -55,7 +55,7 @@ export default class MainGamePage extends Component {
     } else {
       this.handleGameOver();
     }
-  };
+  }
 
   startClockTimer = () => {
     this.clockTimer = setInterval(() => {
@@ -101,6 +101,9 @@ export default class MainGamePage extends Component {
             ),
           },
           () => {
+            this.animationCircle.current.classList.remove(GameUtil.getColorCodes.warning.color);
+            this.animationCircle.current.classList.remove(GameUtil.getColorCodes.alert.color);  
+            this.animationCircle.current.classList.add(GameUtil.getColorCodes.info.color);    
             setTimeout(() => {
               this.animationCircle.current.style.animation = `countdown ${parseFloat(
                 this.state.timerValue

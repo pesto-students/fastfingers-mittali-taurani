@@ -4,6 +4,7 @@ import Header from "../Common/Header/Header";
 import LocalStorage from "../../util/LocalStorage";
 import Button from "../Common/Button/Button";
 import { IoReloadSharp } from "react-icons/io5";
+import GameUtil from "../../util/GameUtil";
 
 const EndGamePage = () => {
   const [playerName] = useState(LocalStorage.getFromLocalStorage(`playerName`));
@@ -27,17 +28,7 @@ const EndGamePage = () => {
   };
 
   useEffect(() => {
-    const gameScoreInNumeric = gameScores.map((value) =>
-      Number(value.replace(":", "."))
-    );
-    const highestScore = Math.max(...gameScoreInNumeric);
-    const currentGameScore = gameScoreInNumeric[gameScoreInNumeric.length - 1];
-    if (
-      highestScore === currentGameScore &&
-      gameScoreInNumeric.lastIndexOf(highestScore) ===
-        gameScoreInNumeric.indexOf(currentGameScore)
-    )
-      setIsHighestScore(true);
+    if (GameUtil.getHighestScore(gameScores).isHighest) setIsHighestScore(true);
   }, [isHighestScore, gameScores]);
 
   return (
