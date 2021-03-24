@@ -1,7 +1,6 @@
 .header-main-content {
   justify-content: space-between;
-  // padding: 2% 2% 0;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-family: var(--ff-primary);
 }
 
@@ -22,5 +21,6 @@
   .game-name-common-header {
     font-family: var(--ff-logo);
     align-self: flex-start;
+    font-size: 2rem;
   }
 }

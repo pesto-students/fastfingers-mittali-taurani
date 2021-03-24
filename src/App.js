@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
-import StartGamePage from "./components/StartGameModule/StartGamePage";
 import "./components/Common/CommonStyle.scss";
+import StartGamePage from "./components/StartGameModule/StartGamePage";
 import MainGamePage from "./components/MainGameModule/MainGamePage";
 import Route from "./service/Route";
 import EndGamePage from "./components/EndGameModule/EndGamePage";

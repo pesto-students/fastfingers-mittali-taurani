@@ -2,12 +2,23 @@
   border-radius: 15px;
   border: solid 3px var(--light-red);
   color: var(--white);
-  font-size: 1rem;
   font-family: var(--ff-secondary);
   padding: 3% 5% 3% 7%;
   align-items: flex-start;
+  justify-content: flex-start;
+  font-size: 1.3rem;
+  min-width: 15rem;
+  height: 25rem;
+  overflow-y: auto;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 
-  .scoreboard-header{
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scoreboard-header {
     color: var(--light-red);
     margin: 2% 0 10%;
     align-self: center;
@@ -15,5 +26,11 @@
 
   & span:not(:first-child) {
     margin-bottom: 3%;
+  }
+
+  .personal-best {
+    color: var(--light-red);
+    font-size: 0.7rem;
+    margin: 3% 0;
   }
 }

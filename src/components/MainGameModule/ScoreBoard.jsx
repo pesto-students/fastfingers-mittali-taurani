@@ -1,5 +1,6 @@
 import React from "react";
 import "./ScoreBoard.scss";
+import GameUtil from "../../util/GameUtil";
 
 const ScoreBoard = ({ gameScores }) => {
   return (
@@ -8,10 +9,16 @@ const ScoreBoard = ({ gameScores }) => {
       {gameScores === null ? (
         <span>No records</span>
       ) : (
+          
         gameScores.map((value, index) => (
+          [(GameUtil.getHighestScore(gameScores).highestScoreIndex === index
+            ? <span className="personal-best">PERSONAL BEST</span>
+            : null
+          ),
           <span>
             Game {index + 1} : {value}
           </span>
+          ]
         ))
       )}
     </div>

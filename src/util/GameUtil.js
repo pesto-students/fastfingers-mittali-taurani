@@ -12,6 +12,9 @@ const DATA_BY_LEVEL = {
   2: dictionary.filter((word) => word.length > 8),
 };
 
+const WARNING_THRESHOLD = 1.5;
+const ALERT_THRESHOLD = 0.5;
+
 const GameUtil = {
   getCurrentDifficultyLevel: (difficultyLevel) =>
     DIFFICULTY_LEVELS[difficultyLevel],
@@ -24,7 +27,10 @@ const GameUtil = {
   getNewDifficultyLevel: (difficultyLevel) => {
     if (parseFloat(difficultyLevel) < 1.5) {
       return 1;
-    } else if (parseFloat(difficultyLevel) >= 1.5 && parseFloat(difficultyLevel) < 2) {
+    } else if (
+      parseFloat(difficultyLevel) >= 1.5 &&
+      parseFloat(difficultyLevel) < 2
+    ) {
       return 1.5;
     } else {
       return 2;
@@ -32,15 +38,48 @@ const GameUtil = {
   },
 
   getTimerValue: (wordLength, difficultyLevel) => {
-    const timerValue = Math.ceil(wordLength/difficultyLevel).toFixed(2);
+    const timerValue = Math.ceil(wordLength / difficultyLevel).toFixed(2);
     return timerValue < 2 ? 2.0 : timerValue;
   },
 
   formatTimeValue: (time) => {
-    const minutes = Math.floor(time/60);
+    const minutes = Math.floor(time / 60);
     const seconds = time % 60;
-    return `${minutes}:${seconds < 10 ? `0${seconds}` : seconds}`
-  }
+    return `${minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+  },
+
+  getHighestScore: (gameScores) => {
+    const gameScoreInNumeric = gameScores.map((value) =>
+      Number(value.replace(":", "."))
+    );
+    const highestScore = Math.max(...gameScoreInNumeric);
+    const currentGameScore = gameScoreInNumeric[gameScoreInNumeric.length - 1];
+    const result = {
+      isHighest: false,
+      highestScoreIndex: gameScoreInNumeric.indexOf(highestScore),
+    };
+
+    if (
+      highestScore === currentGameScore &&
+      result.highestScoreIndex === gameScoreInNumeric.length - 1
+    )
+      result.isHighest = true;
+    return result;
+  },
+
+  getColorCodes: {
+    info: {
+      color: "green",
+    },
+    warning: {
+      color: "orange",
+      threshold: WARNING_THRESHOLD,
+    },
+    alert: {
+      color: "red",
+      threshold: ALERT_THRESHOLD,
+    },
+  },
 };
 
 export default GameUtil;
