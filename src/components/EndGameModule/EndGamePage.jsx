@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from "react";
 import "./EndGamePage.scss";
 import Header from "../Common/Header/Header";
-import LocalStorage from "../../util/LocalStorage";
+import SessionStorage from "../../util/SessionStorage";
 import Button from "../Common/Button/Button";
 import { IoReloadSharp } from "react-icons/io5";
 import GameUtil from "../../util/GameUtil";
 
 const EndGamePage = () => {
-  const [playerName] = useState(LocalStorage.getFromLocalStorage(`playerName`));
+  const [playerName] = useState(SessionStorage.getFromSessionStorage(`playerName`));
   const [difficultyLevel] = useState(
-    Number(LocalStorage.getFromLocalStorage(`difficultyLevel`))
+    Number(SessionStorage.getFromSessionStorage(`difficultyLevel`))
   );
   const [gameScores] = useState(
-    JSON.parse(LocalStorage.getFromLocalStorage(`gameScores`))
+    JSON.parse(SessionStorage.getFromSessionStorage(`gameScores`))
   );
 
   const [isHighestScore, setIsHighestScore] = useState(false);

@@ -12,10 +12,10 @@ const ScoreBoard = ({ gameScores }) => {
           
         gameScores.map((value, index) => (
           [(GameUtil.getHighestScore(gameScores).highestScoreIndex === index
-            ? <span className="personal-best">PERSONAL BEST</span>
+            ? <span key={index} className="personal-best">PERSONAL BEST</span>
             : null
           ),
-          <span>
+          <span key={index+1}>
             Game {index + 1} : {value}
           </span>
           ]
