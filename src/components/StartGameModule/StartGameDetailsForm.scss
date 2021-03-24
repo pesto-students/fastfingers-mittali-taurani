@@ -1,5 +1,4 @@
 .start-game-main-content {
-  width: 100%;
 
   input,
   select {
@@ -9,15 +8,29 @@
     border-radius: 15px;
     box-shadow: 0 3px 16px 0 rgba(0, 0, 0, 0.8);
     border: solid 1px var(--white);
-    padding: 1% 4% 1% 2%;
+    padding: 3% 5%;
     outline: none;
+    margin-bottom: 2%;
   }
 
   input[type="text"] {
     color: var(--evergreen);
-    margin-bottom: 1%;
     background-color: var(--white);
     opacity: 0.59;
+  }
+
+  .player-name-error{
+    font-size: 1rem;
+    align-self: flex-start;
+    margin-bottom: 3%;
+
+    &.show{
+      visibility: visible;
+    }
+
+    &.hide{
+      visibility: hidden;
+    }
   }
 
   select {
@@ -30,6 +43,6 @@
   }
 
   .start-btn {
-    margin: 5% 0 2%;
+    margin: 8% 0 2%;
   }
 }

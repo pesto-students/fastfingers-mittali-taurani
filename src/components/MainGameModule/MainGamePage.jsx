@@ -6,7 +6,7 @@ import TimerCounter from "../TimerCounter/TimerCounter";
 import ScoreBoard from "./ScoreBoard";
 import WordWrapper from "./WordWrapper";
 import GameUtil from "../../util/GameUtil";
-import LocalStorage from "../../util/LocalStorage";
+import SessionStorage from "../../util/SessionStorage";
 
 export default class MainGamePage extends Component {
   constructor(props) {
@@ -16,14 +16,14 @@ export default class MainGamePage extends Component {
       typedWord: "",
       timerValue: "",
       currentGameScore: 0,
-      playerName: LocalStorage.getFromLocalStorage(`playerName`),
+      playerName: SessionStorage.getFromSessionStorage(`playerName`),
       difficultyLevel: Number(
-        LocalStorage.getFromLocalStorage(`difficultyLevel`)
+        SessionStorage.getFromSessionStorage(`difficultyLevel`)
       ),
     };
     this.animationCircle = React.createRef();
     this.changeDifficultyLevel = this.state.difficultyLevel;
-    this.allScores = JSON.parse(LocalStorage.getFromLocalStorage(`gameScores`));
+    this.allScores = JSON.parse(SessionStorage.getFromSessionStorage(`gameScores`));
   }
 
   componentDidMount() {
@@ -122,7 +122,7 @@ export default class MainGamePage extends Component {
       this.allScores = [];
     }
     this.allScores.push(GameUtil.formatTimeValue(this.state.currentGameScore));
-    LocalStorage.setInLocalStorage('gameScores', JSON.stringify(this.allScores));
+    SessionStorage.setInSessionStorage('gameScores', JSON.stringify(this.allScores));
     window.location.href= './result';
   };
 
