@@ -17,6 +17,8 @@ const EndGamePage = () => {
 
   const [isHighestScore, setIsHighestScore] = useState(false);
 
+  const [restartTime, setRestartTime] = useState(5);
+ 
   const handlePlayAgain = (event) => {
     event.preventDefault();
     window.location.href = "./game";
@@ -26,6 +28,17 @@ const EndGamePage = () => {
     event.preventDefault();
     window.location.href = "./";
   };
+
+  useEffect(() => {
+    const restartTimer = setTimeout(() => {
+      setRestartTime(restartTime-1)
+    },1000)
+    setTimeout(() => {
+      clearInterval(restartTimer);
+      window.location.href = "./game";
+    }, 5000);
+    
+  })
 
   useEffect(() => {
     if (GameUtil.getHighestScore(gameScores).isHighest) setIsHighestScore(true);
@@ -53,6 +66,7 @@ const EndGamePage = () => {
             onClickHandler={handlePlayAgain}
           />
         </div>
+        <div className="restart-msg">Get ready to play again in {restartTime}s</div>
       </main>
       <div className="end-game-footer">
         <button

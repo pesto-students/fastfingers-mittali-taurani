@@ -24,3 +24,28 @@
     font-size: 2rem;
   }
 }
+
+@media screen and (min-width: 320px) and (max-device-width: 480px) {
+  .header-main-content {
+    justify-content: space-between;
+    font-size: 1.2rem;
+
+    .user-specific-details {
+      align-items: flex-start;
+    }
+    
+    .header-icons {
+      margin-right: 0.5rem;
+    }
+
+    .game-specific-details {
+      align-self: flex-start;
+
+      .game-name-common-header {
+        font-family: var(--ff-logo);
+        align-self: flex-start;
+        font-size: 1.5rem;
+      }
+    }
+  }
+}
