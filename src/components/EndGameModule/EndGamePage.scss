@@ -19,12 +19,18 @@
       margin: auto 0;
     }
 
-    .new-high-score{
+    .new-high-score {
       margin: 1% 0 3%;
     }
 
-    .play-again-btn button{
+    .play-again-btn button {
       font-size: 2.5rem;
+    }
+
+    .restart-msg{
+      font-size: 1.3rem;
+      margin-top: 1%;
+      color: var(--cool-grey-two);
     }
   }
 
@@ -39,6 +45,34 @@
       padding: 0;
       color: var(--light-red);
       cursor: pointer;
+    }
+  }
+}
+
+@media screen and (min-width: 320px) and (max-device-width: 480px) {
+  .game-end-page-content {
+    .end-game-content {
+      .score-details {
+        font-size: 2.5rem;
+      }
+
+      .game-score {
+        font-size: 4rem;
+        margin: 10% 0;
+      }
+
+      .new-high-score {
+        margin: 2% 0 5%;
+      }
+
+      .play-again-btn button {
+        font-size: 2.6rem;
+      }
+    }
+    .end-game-footer {  
+      .quit-game-button {
+        font-size: 2.8rem;
+      }
     }
   }
 }
