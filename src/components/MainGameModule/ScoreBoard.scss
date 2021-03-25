@@ -34,3 +34,10 @@
     margin: 3% 0;
   }
 }
+
+@media screen and (min-width: 320px) and (max-device-width: 480px) {
+  .scoreboard-card {
+    min-height: 5rem;
+    height: 10rem;
+  }
+}
