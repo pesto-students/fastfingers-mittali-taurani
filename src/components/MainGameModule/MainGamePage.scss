@@ -34,3 +34,43 @@
     }
   }
 }
+
+@media screen and (min-width: 320px) and (max-device-width: 480px) {
+  .game-main-page-content {
+    align-items: center;
+
+    .game-specific-details div{
+      align-self: flex-end;
+    }
+
+    .game-content {
+      display: flex;
+      flex-direction: column;
+      flex: 0;
+
+      .scoreboard {
+        order: 1;
+        margin-top: 5%;
+        align-self: center;
+      }
+
+      .word-wrapper {
+
+        .word-input {
+          min-width: none;
+          width: auto;
+        }
+      }
+    }
+
+    .main-game-footer {
+      button {
+        font-size: 1.8rem;
+
+        .icon {
+          margin-right: 0.5rem;
+        }
+      }
+    }
+  }
+}
