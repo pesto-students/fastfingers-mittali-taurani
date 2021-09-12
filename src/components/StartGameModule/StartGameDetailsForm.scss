@@ -1,0 +1,48 @@
+.start-game-main-content {
+
+  input,
+  select {
+    min-width: inherit;
+    font-size: 1.6rem;
+    font-family: var(--ff-primary);
+    border-radius: 15px;
+    box-shadow: 0 3px 16px 0 rgba(0, 0, 0, 0.8);
+    border: solid 1px var(--white);
+    padding: 3% 5%;
+    outline: none;
+    margin-bottom: 2%;
+  }
+
+  input[type="text"] {
+    color: var(--evergreen);
+    background-color: var(--white);
+    opacity: 0.59;
+  }
+
+  .player-name-error{
+    font-size: 1rem;
+    align-self: flex-start;
+    margin-bottom: 3%;
+
+    &.show{
+      visibility: visible;
+    }
+
+    &.hide{
+      visibility: hidden;
+    }
+  }
+
+  select {
+    color: var(--cool-grey);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: url("../../assets/icons/ionic-md-arrow-dropdown.svg")
+      transparent no-repeat calc(100% - 10px);
+  }
+
+  .start-btn {
+    margin: 8% 0 2%;
+  }
+}

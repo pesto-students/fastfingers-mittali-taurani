@@ -1,0 +1,18 @@
+.main-game-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--ff-tertiary);
+  font-size: 2rem;
+  // margin: 5% 0 2%;
+  background: transparent;
+  border: none;
+  padding: 0;
+  color: var(--light-red);
+  cursor: pointer;
+
+  .icon {
+    size: 3rem;
+    margin: 0 1rem 0 0;
+  }
+}

@@ -1,0 +1,82 @@
+.game-main-page-content {
+  align-items: initial;
+  font-size: 2.5rem;
+  height: 100vh;
+  padding: 2%;
+
+  .game-content {
+    font-family: var(--ff-tertiary);
+    align-items: flex-start;
+    margin: auto 0;
+
+    .main-game {
+      margin: auto;
+      font-size: 3rem;
+
+      .word-wrapper {
+        margin-top: 5%;
+
+        .word-input {
+          text-transform: uppercase;
+          text-align: center;
+          font-size: 1.5rem;
+          min-width: 100%;
+          min-height: 55px;
+          margin-top: 7%;
+          padding: 3%;
+          opacity: 0.59;
+          border-radius: 15px;
+          box-shadow: 0 3px 16px 0 rgba(0, 0, 0, 0.8);
+          background-color: var(--white);
+          outline: none;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 320px) and (max-device-width: 480px) {
+  .game-main-page-content {
+    align-items: center;
+
+    .game-specific-details div{
+      align-self: flex-end;
+    }
+
+    .game-content {
+      display: flex;
+      flex-direction: column;
+      flex: 0;
+
+      .scoreboard {
+        order: 1;
+        margin-top: 5%;
+        align-self: center;
+      }
+
+      .word-wrapper {
+        max-width: 100vw;
+        font-size: 2.5rem;
+        
+        .random-word {
+          word-break: break-word;
+        }
+
+        .word-input {
+          min-width: none;
+          width: auto;
+        }
+      }
+    }
+
+    .main-game-footer {
+      button {
+        font-size: 1.8rem;
+
+        .icon {
+          margin-right: 0.5rem;
+        }
+      }
+    }
+  }
+}
