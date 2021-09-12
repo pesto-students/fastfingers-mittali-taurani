@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import Alphabet from "./Alphabet";
 
 const RandomWord = ({ givenWord, typedWord }) => (
-  <div className="word-wrapper">
+  <div className="random-word">
     {[...givenWord].map((alphabet, index) => (
       <Alphabet key={index} givenAlphabet={alphabet} typedAlphabet={typedWord[index]} />
     ))}

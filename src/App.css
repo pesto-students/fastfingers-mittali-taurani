@@ -12,12 +12,12 @@ Fonts
   src: url('assets/fonts/LaserCorpsGrad/lasercorpsgrad.ttf');
 }
 @font-face {
-  font-family: 'GothamBook';
-  src: url('assets/fonts/Gotham/GothamBook.ttf');
+  font-family: 'RobotoRegular';
+  src: url('assets/fonts/Roboto/Roboto-Regular.ttf');
 }
 @font-face {
-  font-family: 'GothamMedium';
-  src: url('assets/fonts/Gotham/GothamMedium.ttf');
+  font-family: 'RobotoMedium';
+  src: url('assets/fonts/Roboto/Roboto-Medium.ttf');
 }
 
 @font-face { 
@@ -33,8 +33,8 @@ Variables
 :root {
   --ff-logo: 'LaserCorpsGradient';
   --ff-primary: 'Electrolize';
-  --ff-secondary: 'GothamBook';
-  --ff-tertiary: 'GothamMedium';
+  --ff-secondary: 'RobotoRegular';
+  --ff-tertiary: 'RobotoMedium';
   --white: #ffffff;
   --marine: #063c47;
   --black: #000000;

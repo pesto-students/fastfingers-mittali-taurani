@@ -55,6 +55,12 @@
       }
 
       .word-wrapper {
+        max-width: 100vw;
+        font-size: 2.5rem;
+        
+        .random-word {
+          word-break: break-word;
+        }
 
         .word-input {
           min-width: none;
